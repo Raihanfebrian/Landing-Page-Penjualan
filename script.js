@@ -77,7 +77,7 @@ function updateTotal() {
     }
 }
 
-// TESTIMONIAL SLIDER (SIMPLE & STABLE)
+// TESTIMONIAL SLIDER (FIX SCROLL HIJACKING)
 const scroller = document.getElementById('testimonialScroller');
 const cards = document.querySelectorAll('.testimonial-card');
 const dots = document.querySelectorAll('.testi-dot');
@@ -87,17 +87,14 @@ const btnPrev = document.getElementById('btnPrev');
 let currentIndex = 0;
 const totalCards = cards.length;
 
-// 1. Observer untuk mendeteksi slide mana yang aktif (di tengah)
+// 1. Observer untuk mendeteksi slide aktif (Visual only)
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Tambah class 'is-active' kalau keliatan
             entry.target.classList.add('is-active');
-            
-            // Update Dot indicator
             const index = Array.from(cards).indexOf(entry.target);
             if (index !== -1) {
-                currentIndex = index; // Update index global
+                currentIndex = index;
                 updateDots(index);
             }
         } else {
@@ -106,34 +103,37 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, {
     root: scroller,
-    threshold: 0.6 // Trigger pas 60% item keliatan
+    threshold: 0.6
 });
 
-// Pasang observer ke semua card
 cards.forEach(card => observer.observe(card));
 
-// 2. Fungsi Update Dots
+// 2. Update Dots
 function updateDots(activeIndex) {
     dots.forEach((dot, i) => {
-        // Reset
         dot.classList.remove('bg-pink-500', 'bg-cyan-400', 'bg-yellow-400', 'w-4');
         dot.classList.add('bg-ocean-600');
-        
         if (i === activeIndex) {
             dot.classList.remove('bg-ocean-600');
-            dot.classList.add('w-4'); // Besarin
+            dot.classList.add('w-4');
             const colors = ['bg-pink-500', 'bg-cyan-400', 'bg-yellow-400'];
             dot.classList.add(colors[i % 3]);
         }
     });
 }
 
-// 3. Fungsi Navigasi (Rewind)
+// 3. Fungsi Navigasi (FIX: Pake scrollLeft, BUKAN scrollIntoView)
+// Ini mencegah halaman utama ikut ke-scroll
 function scrollToTesti(index) {
-    cards[index].scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
+    const card = cards[index];
+    if (!card) return;
+
+    // Hitung posisi scroll horizontal
+    const scrollLeftPos = card.offsetLeft - (scroller.offsetWidth / 2) + (card.offsetWidth / 2);
+    
+    scroller.scrollTo({
+        left: scrollLeftPos,
+        behavior: 'smooth'
     });
 }
 
@@ -141,7 +141,7 @@ function scrollToTesti(index) {
 if (btnNext) {
     btnNext.addEventListener('click', () => {
         currentIndex++;
-        if (currentIndex >= totalCards) currentIndex = 0; // Rewind ke awal
+        if (currentIndex >= totalCards) currentIndex = 0;
         scrollToTesti(currentIndex);
     });
 }
@@ -150,23 +150,55 @@ if (btnNext) {
 if (btnPrev) {
     btnPrev.addEventListener('click', () => {
         currentIndex--;
-        if (currentIndex < 0) currentIndex = totalCards - 1; // Rewind ke akhir
+        if (currentIndex < 0) currentIndex = totalCards - 1;
         scrollToTesti(currentIndex);
     });
 }
 
-// Auto Slide (Hanya jalan kalau user ga hover)
-let autoSlide = setInterval(() => {
-    currentIndex++;
-    if (currentIndex >= totalCards) currentIndex = 0;
-    scrollToTesti(currentIndex);
-}, 5000);
+// 4. Auto Slide dengan "PAUSE" jika tidak kelihatan
+let autoSlideInterval;
 
-// Pause auto slide kalau user hover
-if(scroller) {
-    scroller.addEventListener('mouseenter', () => clearInterval(autoSlide));
-    scroller.addEventListener('touchstart', () => clearInterval(autoSlide));
+function startAutoSlide() {
+    stopAutoSlide(); // Clear dulu biar gak dobel
+    autoSlideInterval = setInterval(() => {
+        currentIndex++;
+        if (currentIndex >= totalCards) currentIndex = 0;
+        scrollToTesti(currentIndex);
+    }, 5000);
 }
+
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
+
+// 5. Observer untuk PAUSE auto slide kalau section tidak kelihatan
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Kalau section kelihatan, baru start auto slide
+            startAutoSlide();
+        } else {
+            // Kalau section tidak kelihatan (user lagi lihat Demo/Tutorial), STOP auto slide
+            stopAutoSlide();
+        }
+    });
+}, { threshold: 0.2 }); // Trigger pas 20% section kelihatan
+
+// Amankan: Cek dulu elementnya ada apa enggak
+const testimonialSection = document.querySelector('#testimonialScroller')?.closest('section');
+if (testimonialSection) {
+    sectionObserver.observe(testimonialSection);
+}
+
+// Init
+window.addEventListener('load', () => {
+    // Init posisi tanpa animasi
+    const card = cards[0];
+    if (card) {
+        const scrollLeftPos = card.offsetLeft - (scroller.offsetWidth / 2) + (card.offsetWidth / 2);
+        scroller.scrollLeft = scrollLeftPos;
+    }
+});
 
 // Reveal Animation
 const reveals = document.querySelectorAll('.reveal');
