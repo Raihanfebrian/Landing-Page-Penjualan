@@ -375,7 +375,7 @@
                             <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span><strong>Copywriting Otomatis:</strong> AI bantu rangkai kata.</span></li>
                             <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span><strong>High Converting:</strong> Desain teruji.</span></li>
                         </ul>
-                        <a href="#checkout-summary" class="mt-6 w-full py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold rounded-lg text-center block hover:opacity-90 transition">Lihat Penawaran</a>
+                        <a href="#pricing" class="mt-6 w-full py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold rounded-lg text-center block hover:opacity-90 transition">Lihat Penawaran</a>
                     </div>
                 </div>
             </div>
@@ -581,7 +581,7 @@
     </section>
 
     <!-- Special Offer -->
-    <section id="pricing" class="w-full py-16 px-4 bg-ocean-900 relative">
+    <section class="w-full py-16 px-4 bg-ocean-900 relative">
         <div class="max-w-4xl mx-auto reveal">
             <div class="text-center mb-10">
                 <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">🔥 SPECIAL OFFER</h2>
@@ -604,8 +604,8 @@
                 </div>
             </div>
 
-            <!-- Pricing Card -->
-            <div class="bg-gradient-to-br from-ocean-800 to-ocean-900 rounded-3xl border-2 border-ocean-500 relative overflow-hidden shadow-2xl">
+            <!-- PINDAHIN ID="pricing" KE SINI (Wrapper Kartu) -->
+            <div id="pricing" class="bg-gradient-to-br from-ocean-800 to-ocean-900 rounded-3xl border-2 border-ocean-500 relative overflow-hidden shadow-2xl">
                 <div class="absolute top-6 -right-12 bg-coral-500 text-white text-xs font-bold py-1 px-10 rotate-45 shadow-md">BEST DEAL</div>
                 <div class="p-8">
                     <div class="bg-red-900/30 border border-red-500/50 rounded-xl p-4 mb-6">
@@ -616,10 +616,17 @@
                             <div class="bg-ocean-950 rounded-lg px-3 py-2 min-w-[60px] text-center"><span class="text-2xl font-bold text-white" id="seconds">00</span><p class="text-xs text-ocean-400">Detik</p></div>
                         </div>
                     </div>
+                    
+                    <!-- 3 BADGE MENCOLOK -->
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="bg-green-500/20 text-green-400 text-[11px] font-bold px-3 py-1 rounded-full border border-green-500/30 shadow-sm">⚡ Akses Selamanya</span>
+                        <span class="bg-cyan-500/20 text-cyan-400 text-[11px] font-bold px-3 py-1 rounded-full border border-cyan-500/30 shadow-sm">🔄 Unlimited Generate</span>
+                        <span class="bg-yellow-500/20 text-yellow-400 text-[11px] font-bold px-3 py-1 rounded-full border border-yellow-500/30 shadow-sm">📉 Hemat 90%</span>
+                    </div>
+
                     <div class="text-center mb-6">
                         <div class="text-ocean-400 line-through text-lg">Rp 599.000</div>
                         <div class="text-5xl font-bold text-white my-2">Rp 179.000</div>
-                        <div class="text-green-400 text-sm font-medium">Akses selamanya, Unlimited generate, Hemat 90%</div>
                     </div>
                     
                     <!-- What You Get -->
@@ -774,7 +781,7 @@
             <div class="text-ocean-400 line-through text-xs">Rp 599.000</div>
             <div class="text-white font-bold">Mulai Rp 179.000 <span class="ml-1 text-xs text-coral-400 font-normal">Promo Diskon</span></div>
         </div>
-        <a href="#checkout-summary" class="btn-primary px-6 py-2 rounded-lg font-bold text-sm">Ya, Mau Ambil Promo</a>
+        <a href="#pricing" class="btn-primary px-6 py-2 rounded-lg font-bold text-sm">Ya, Mau Ambil Promo</a>
     </div>
 
     <!-- MODAL PREVIEW WINDOW -->
