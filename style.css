@@ -51,7 +51,7 @@ body { overflow-x: hidden; font-family: 'DM Sans', sans-serif; -webkit-font-smoo
 
 /* Responsive Adjustments */
 @media (max-width: 768px) { 
-    .sales-notification { left: 10px; bottom: 80px; max-width: 280px; } 
+    .sales-notification { left: 10px; bottom: 100px; max-width: 280px; } 
     .marquee-content, .marquee-content-reverse { animation-duration: 15s; }
 }
 /* Animasi Modal */
