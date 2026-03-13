@@ -13,25 +13,20 @@ const stickyCta = document.getElementById('stickyCta');
 const pricingSection = document.getElementById('pricing');
 const agitateSection = document.getElementById('agitate-section');
 
-// Function to show
 function showSticky() {
     stickyCta.style.transform = "translateY(0)";
     stickyCta.style.opacity = "1";
     stickyCta.style.pointerEvents = "auto";
 }
 
-// Function to hide
 function hideSticky() {
     stickyCta.style.transform = "translateY(100%)";
     stickyCta.style.opacity = "0";
     stickyCta.style.pointerEvents = "none";
 }
 
-// Observer 1: Muncul setelah scroll lewat Agitate Section
 const agitateObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        // Logika: Jika agitate section sudah lewat (posisi bottom nya di atas viewport / < 0)
-        // DAN dia gak kelihatan (false)
         if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
             showSticky();
         }
@@ -39,18 +34,14 @@ const agitateObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0 }); 
 agitateObserver.observe(agitateSection);
 
-// Observer 2: Hilang saat di Pricing Section
 const pricingObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             hideSticky();
-        } 
-        // BUG FIX: Hapus 'else if' di sini. Biar gak nge-trigger show pas awal load.
-        // Logika show biarin agitateObserver yang handle.
+        }
     });
 }, { threshold: 0.1 });
 pricingObserver.observe(pricingSection);
-
 
 // Sales Notification
 const buyers = [
@@ -88,28 +79,7 @@ function toggleFaq(btn) {
     icon.classList.toggle('rotate-180');
 }
 
-// Updated Total Calculation
-function updateTotal() { 
-    const isChecked = document.getElementById('upsell').checked; 
-    const basePrice = 179000;
-    const upsellPrice = 29000;
-    const total = isChecked ? basePrice + upsellPrice : basePrice; 
-    
-    // Update Price Text
-    document.getElementById('totalPrice').textContent = 'Rp ' + total.toLocaleString('id-ID'); 
-    
-    // Toggle Item Display in Summary
-    const upsellItem = document.getElementById('upsellItemDisplay');
-    if(isChecked) {
-        upsellItem.classList.remove('hidden');
-        upsellItem.classList.add('flex');
-    } else {
-        upsellItem.classList.add('hidden');
-        upsellItem.classList.remove('flex');
-    }
-}
-
-// TESTIMONIAL SLIDER (FIX SCROLL HIJACKING)
+// TESTIMONIAL SLIDER
 const scroller = document.getElementById('testimonialScroller');
 const cards = document.querySelectorAll('.testimonial-card');
 const dots = document.querySelectorAll('.testi-dot');
@@ -119,7 +89,6 @@ const btnPrev = document.getElementById('btnPrev');
 let currentIndex = 0;
 const totalCards = cards.length;
 
-// 1. Observer untuk mendeteksi slide aktif (Visual only)
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -140,7 +109,6 @@ const observer = new IntersectionObserver((entries) => {
 
 cards.forEach(card => observer.observe(card));
 
-// 2. Update Dots
 function updateDots(activeIndex) {
     dots.forEach((dot, i) => {
         dot.classList.remove('bg-pink-500', 'bg-cyan-400', 'bg-yellow-400', 'w-4');
@@ -154,22 +122,16 @@ function updateDots(activeIndex) {
     });
 }
 
-// 3. Fungsi Navigasi (FIX: Pake scrollLeft, BUKAN scrollIntoView)
-// Ini mencegah halaman utama ikut ke-scroll
 function scrollToTesti(index) {
     const card = cards[index];
     if (!card) return;
-
-    // Hitung posisi scroll horizontal
     const scrollLeftPos = card.offsetLeft - (scroller.offsetWidth / 2) + (card.offsetWidth / 2);
-    
     scroller.scrollTo({
         left: scrollLeftPos,
         behavior: 'smooth'
     });
 }
 
-// Next Button
 if (btnNext) {
     btnNext.addEventListener('click', () => {
         currentIndex++;
@@ -178,7 +140,6 @@ if (btnNext) {
     });
 }
 
-// Prev Button
 if (btnPrev) {
     btnPrev.addEventListener('click', () => {
         currentIndex--;
@@ -187,11 +148,10 @@ if (btnPrev) {
     });
 }
 
-// 4. Auto Slide dengan "PAUSE" jika tidak kelihatan
 let autoSlideInterval;
 
 function startAutoSlide() {
-    stopAutoSlide(); // Clear dulu biar gak dobel
+    stopAutoSlide();
     autoSlideInterval = setInterval(() => {
         currentIndex++;
         if (currentIndex >= totalCards) currentIndex = 0;
@@ -203,28 +163,22 @@ function stopAutoSlide() {
     clearInterval(autoSlideInterval);
 }
 
-// 5. Observer untuk PAUSE auto slide kalau section tidak kelihatan
 const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Kalau section kelihatan, baru start auto slide
             startAutoSlide();
         } else {
-            // Kalau section tidak kelihatan (user lagi lihat Demo/Tutorial), STOP auto slide
             stopAutoSlide();
         }
     });
-}, { threshold: 0.2 }); // Trigger pas 20% section kelihatan
+}, { threshold: 0.2 });
 
-// Amankan: Cek dulu elementnya ada apa enggak
 const testimonialSection = document.querySelector('#testimonialScroller')?.closest('section');
 if (testimonialSection) {
     sectionObserver.observe(testimonialSection);
 }
 
-// Init
 window.addEventListener('load', () => {
-    // Init posisi tanpa animasi
     const card = cards[0];
     if (card) {
         const scrollLeftPos = card.offsetLeft - (scroller.offsetWidth / 2) + (card.offsetWidth / 2);
@@ -232,19 +186,16 @@ window.addEventListener('load', () => {
     }
 });
 
-// Reveal Animation
 const reveals = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
 }, { threshold: 0.1 });
 reveals.forEach(r => { revealObserver.observe(r); });
-// Modal Functions
+
 function openModal(url) {
     const modal = document.getElementById('previewModal');
     const iframe = document.getElementById('modalIframe');
-    
     iframe.src = url;
-    
     modal.classList.remove('hidden');
     modal.classList.add('showing');
     document.body.style.overflow = 'hidden'; 
@@ -253,10 +204,8 @@ function openModal(url) {
 function closeModal() {
     const modal = document.getElementById('previewModal');
     const iframe = document.getElementById('modalIframe');
-    
     modal.classList.remove('showing');
     modal.classList.add('hiding');
-    
     setTimeout(() => {
         modal.classList.add('hidden');
         modal.classList.remove('hiding');
@@ -265,7 +214,6 @@ function closeModal() {
     }, 300);
 }
 
-// Close modal kalo klik di luar area
 document.getElementById('previewModal')?.addEventListener('click', function(e) {
     if (e.target === this) closeModal();
 });
@@ -275,23 +223,11 @@ const liveViewersCount = document.getElementById('liveViewersCount');
 let currentViewers = 12;
 
 setInterval(() => {
-    // 1. Tentuin seberapa besar lompatannya (1 sampai 4 orang)
     const jumpSize = Math.floor(Math.random() * 4) + 1;
-    
-    // 2. Tentuin arah: Naik (1) atau Turun (0)
     const direction = Math.random() > 0.5 ? 1 : -1;
-    
-    // 3. Hitung perubahannya
     const change = jumpSize * direction;
-    
-    // 4. Update angka
     currentViewers += change;
-    
-    // 5. Batasin Minimal 6, Maksimal 19
     if (currentViewers < 6) currentViewers = 6;
     if (currentViewers > 19) currentViewers = 19;
-    
-    // 6. Ganti teks
     liveViewersCount.textContent = `${currentViewers} Orang sedang melihat penawaran ini`;
-    
-}, 4000); // Tiap 4 detik
+}, 4000);

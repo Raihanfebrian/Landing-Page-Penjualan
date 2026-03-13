@@ -42,15 +42,6 @@
             }
         }
     </script>
-    <!-- TAMBAHKAN INI BIAR STICKY KETEMU -->
-    <style>
-        /* Style Hidden Sticky */
-        .hidden-sticky {
-            transform: translateY(100%);
-            opacity: 0;
-            pointer-events: none;
-        }
-    </style>
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -136,7 +127,6 @@
     </section>
     
     <!-- Agitate Section -->
-    <!-- DITAMBAH ID agitate-section untuk trigger Sticky CTA -->
     <section id="agitate-section" class="w-full py-16 px-4 bg-gradient-to-b from-ocean-950 to-ocean-900">
         <div class="max-w-4xl mx-auto reveal">
             <div class="text-center mb-10">
@@ -224,7 +214,7 @@
                 <div class="inline-block glass rounded-xl p-6 text-left max-w-2xl">
                     <h4 class="font-bold text-white text-lg mb-2 text-center">Tools Ini Didesain Khusus Untuk:</h4>
                     <ul class="text-ocean-200 text-sm space-y-2 list-disc list-inside">
-                        <li>Pemula yang ramah (<em>beginner friendly</em>)</li>
+                        <li>Pemula yang mau belajar (<em>beginner friendly</em>)</li>
                         <li>Kamu yang belum terbiasa dengan desain atau merangkai kata jualan</li>
                         <li>Nggak mau ribet dengan urusan teknis</li>
                         <li>Ingin punya hasil halaman penawaran yang tampil profesional & meyakinkan</li>
@@ -425,12 +415,12 @@
                 </button>
 
                 <div id="testimonialScroller" class="flex overflow-x-auto snap-x snap-mandatory gap-6 py-8 pb-4 scrollbar-hide scroll-smooth">
-                    
+                    <!-- Testimonial 1 -->
                     <div class="testimonial-card flex-shrink-0 w-10/12 md:w-1/3 snap-center transition-all duration-500">
                         <div class="relative h-full bg-gradient-to-br from-ocean-800 to-ocean-900 rounded-2xl p-2 border border-ocean-700/50 overflow-hidden flex flex-col gap-2">
                             <div class="flex items-center justify-between bg-ocean-950/50 rounded-lg px-3 py-1.5 border border-ocean-700/30">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13.-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298.-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57.-.347z"/></svg>
                                     <span class="text-xs font-bold text-white">WhatsApp Web</span>
                                 </div>
                                 <div class="flex items-center gap-1 bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-500/30">
@@ -443,12 +433,12 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Testimonial 2 -->
                     <div class="testimonial-card flex-shrink-0 w-10/12 md:w-1/3 snap-center transition-all duration-500">
                         <div class="relative h-full bg-gradient-to-br from-ocean-800 to-ocean-900 rounded-2xl p-2 border border-ocean-700/50 overflow-hidden flex flex-col gap-2">
                             <div class="flex items-center justify-between bg-ocean-950/50 rounded-lg px-3 py-1.5 border border-ocean-700/30">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13.-.606.134-.133.298-.347.446.-.52.149-.174.198.-.298.298.-.497.099-.198.05.-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669.-.51-.173.-.008-.371.-.01-.57.-.01-.198 0-.52.074.-.792.372.-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571.-.085 1.758.-.719 2.006-1.413.248.-.694.248-1.289.173-1.413.-.074.-.124-.272.-.198-.57.-.347z"/></svg>
                                     <span class="text-xs font-bold text-white">WhatsApp Web</span>
                                 </div>
                                 <div class="flex items-center gap-1 bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-500/30">
@@ -461,12 +451,12 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Testimonial 3 -->
                     <div class="testimonial-card flex-shrink-0 w-10/12 md:w-1/3 snap-center transition-all duration-500">
                         <div class="relative h-full bg-gradient-to-br from-ocean-800 to-ocean-900 rounded-2xl p-2 border border-ocean-700/50 overflow-hidden flex flex-col gap-2">
                             <div class="flex items-center justify-between bg-ocean-950/50 rounded-lg px-3 py-1.5 border border-ocean-700/30">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15.-.197.297-.767.966.-.94 1.164.-.173.199-.347.223-.644.075.-.297.-.15-1.255.-.463-2.39-1.475-.883.-.788-1.48-1.761-1.653-2.059.-.173.-.297-.018.-.458.13.-.606.134.-.133.298.-.347.446.-.52.149.-.174.198.-.298.298.-.497.099.-.198.05.-.371-.025.-.52.-.075.-.149-.669-1.612-.916-2.207.-.242.-.579.-.487-.5-.669.-.51-.173.-.008-.371.-.01-.57.-.01-.198 0-.52.074.-.792.372.-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571.-.085 1.758.-.719 2.006-1.413.248.-.694.248-1.289.173-1.413.-.074.-.124-.272.-.198-.57.-.347z"/></svg>
                                     <span class="text-xs font-bold text-white">WhatsApp Web</span>
                                 </div>
                                 <div class="flex items-center gap-1 bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-500/30">
@@ -479,12 +469,12 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Testimonial 4 -->
                     <div class="testimonial-card flex-shrink-0 w-10/12 md:w-1/3 snap-center transition-all duration-500">
                         <div class="relative h-full bg-gradient-to-br from-ocean-800 to-ocean-900 rounded-2xl p-2 border border-ocean-700/50 overflow-hidden flex flex-col gap-2">
                             <div class="flex items-center justify-between bg-ocean-950/50 rounded-lg px-3 py-1.5 border border-ocean-700/30">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15.-.197.297-.767.966.-.94 1.164.-.173.199-.347.223-.644.075.-.297.-.15-1.255.-.463-2.39-1.475.-.883.-.788-1.48-1.761-1.653-2.059.-.173.-.297-.018.-.458.13.-.606.134.-.133.298.-.347.446.-.52.149.-.174.198.-.298.298.-.497.099.-.198.05.-.371-.025.-.52.-.075.-.149-.669-1.612-.916-2.207.-.242.-.579.-.487-.5-.669.-.51-.173.-.008-.371.-.01-.57.-.01-.198 0-.52.074.-.792.372.-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571.-.085 1.758.-.719 2.006-1.413.248.-.694.248-1.289.173-1.413.-.074.-.124-.272.-.198-.57.-.347z"/></svg>
                                     <span class="text-xs font-bold text-white">WhatsApp Web</span>
                                 </div>
                                 <div class="flex items-center gap-1 bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-500/30">
@@ -497,12 +487,12 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Testimonial 5 -->
                     <div class="testimonial-card flex-shrink-0 w-10/12 md:w-1/3 snap-center transition-all duration-500">
                         <div class="relative h-full bg-gradient-to-br from-ocean-800 to-ocean-900 rounded-2xl p-2 border border-ocean-700/50 overflow-hidden flex flex-col gap-2">
                             <div class="flex items-center justify-between bg-ocean-950/50 rounded-lg px-3 py-1.5 border border-ocean-700/30">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15.-.197.297-.767.966.-.94 1.164.-.173.199-.347.223-.644.075.-.297.-.15-1.255.-.463-2.39-1.475.-.883.-.788-1.48-1.761-1.653-2.059.-.173.-.297-.018.-.458.13.-.606.134.-.133.298.-.347.446.-.52.149.-.174.198.-.298.298.-.497.099.-.198.05.-.371-.025.-.52.-.075.-.149-.669-1.612-.916-2.207.-.242.-.579.-.487-.5-.669.-.51-.173.-.008-.371.-.01-.57.-.01-.198 0-.52.074.-.792.372.-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571.-.085 1.758.-.719 2.006-1.413.248.-.694.248-1.289.173-1.413.-.074.-.124-.272.-.198-.57.-.347z"/></svg>
                                     <span class="text-xs font-bold text-white">WhatsApp Web</span>
                                 </div>
                                 <div class="flex items-center gap-1 bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-500/30">
@@ -515,7 +505,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Spacer -->
                     <div class="flex-shrink-0 w-10/12 md:w-1/3 h-1"></div>
                 </div>
             </div>
@@ -530,7 +520,7 @@
         </div>
     </section>
 
-    <!-- UPDATED BONUS SECTION -->
+    <!-- BONUS SPESIAL SECTION (TETAP PERTAHANKAN) -->
     <section class="w-full py-16 px-4 bg-gradient-to-b from-ocean-950 to-ocean-900 relative overflow-hidden">
         <div class="max-w-4xl mx-auto reveal relative z-10">
             <div class="text-center mb-12">
@@ -636,6 +626,8 @@
                         <!-- HARGA UTAMA -->
                         <div class="text-5xl font-bold text-white my-2">Rp 179.000</div>
                         <div class="text-green-400 text-sm font-semibold">Harga Soft Launching (Early Bird Batch 1)</div>
+                        <!-- GARANSI -->
+                        <div class="text-ocean-300 text-xs mt-2">🛡️ Garansi 7 Hari Uang Kembali</div>
                     </div>
                     
                     <div class="text-left mb-6">
@@ -653,10 +645,13 @@
                             <li class="flex items-center justify-center gap-2"><span class="text-lg">✨</span> Free Prompt Animasi Interaktif</li>
                             <li class="flex items-center justify-center gap-2"><span class="text-lg">🎥</span> Free Prompt Animasi non Interaktif</li>
                             <li class="flex items-center justify-center gap-2"><span class="text-lg">✅</span> Checklist Best Practice LP</li>
+                            <!-- BONUS 4 PRODUK DIGITAL DITAMBAH DI SINI -->
+                            <li class="flex items-center justify-center gap-2"><span class="text-lg">💎</span> 4 Produk Digital Siap Jual (PLR)</li>
                         </ul>
                     </div>
 
-                    <a href="#checkout-summary" class="btn-primary w-full py-4 rounded-xl font-bold text-lg block text-center animate-pulse-glow">AMBIL DISKON SEKARANG</a>
+                    <!-- TOMBOL LANGSUNG KE SCALEV -->
+                    <a href="https://raihan-struggle.myscalev.com/checkout-page" class="btn-primary w-full py-4 rounded-xl font-bold text-lg block text-center animate-pulse-glow">AMBIL DISKON SEKARANG</a>
                 </div>
             </div>
         </div>
@@ -685,65 +680,7 @@
         </div>
     </section>
 
-    <!-- Checkout Summary Section -->
-    <section id="checkout-summary" class="w-full py-16 px-4 bg-ocean-900">
-        <div class="max-w-lg mx-auto reveal">
-            <div class="glass rounded-2xl p-6 border border-ocean-700">
-                <h3 class="font-display text-xl font-bold text-white mb-4 text-center">🛒 Ringkasan Pesanan</h3>
-                <div class="space-y-3 text-sm text-ocean-200 mb-4 divide-y divide-ocean-700">
-                    <div class="flex justify-between"><span>Landing Page Engine</span><span>Rp 500.000</span></div>
-                    <div class="flex justify-between"><span>Website Engine</span><span>Rp 500.000</span></div>
-                    <div class="flex justify-between"><span>Link Bio Engine</span><span>Rp 300.000</span></div>
-                    <div class="flex justify-between"><span>Video Tutorial + Prompts</span><span>Rp 250.000</span></div>
-                    <div class="flex justify-between text-green-300"><span>+ Bonus: 4 Produk Siap Jual</span><span>Rp 500.000</span></div>
-                </div>
-                <!-- UPDATED CHECKOUT SUMMARY -->
-                <div class="flex justify-between text-ocean-300 text-sm mb-1 border-t border-ocean-600 pt-1"><span>Harga Normal</span><span class="line-through">Rp 599.000</span></div>
-                <div class="flex justify-between text-ocean-200 text-sm mb-2"><span>Harga Batch 2</span><span>Rp 219.000</span></div>
-                <div class="flex justify-between text-green-400 text-sm mb-2 font-semibold"><span>Diskon Early Bird</span><span>- Rp 40.000</span></div>
-                
-                <!-- UPSELL SECTION -->
-                <div class="mt-6 relative">
-                    <div class="border-2 border-dashed border-coral-500 rounded-xl p-4 pt-6 relative overflow-visible bg-ocean-800/30">
-                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10 whitespace-nowrap">
-                            <span class="inline-flex items-center gap-1 bg-coral-500 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg animate-zoom-in-out">
-                                🔥 Penawaran Terbatas
-                            </span>
-                        </div>
-
-                        <div class="flex flex-col">
-                            <div class="w-full mb-4">
-                                <img src="upsell.png" alt="Upsell Preview" class="rounded-lg w-full h-auto object-cover border border-ocean-600">
-                            </div>
-
-                            <div class="flex items-start gap-3 mb-3">
-                                <input type="checkbox" id="upsell" class="w-5 h-5 accent-coral-500 rounded mt-0.5 cursor-pointer" onchange="updateTotal()">
-                                <div class="flex-1">
-                                    <label for="upsell" class="text-coral-400 font-bold text-base cursor-pointer">+ RP 29.000</label>
-                                    <h4 class="text-white font-bold mt-1">15 Framework Script Konten Iklan High Conversion (Dengan Formula Rahasia)</h4>
-                                </div>
-                            </div>
-
-                            <p class="text-ocean-300 text-xs">
-                                Kamu Bisa Sampai di Landing Page Ini karena Iklan, Kan? Kamu lihat iklan → tertarik → klik → dan sampai di sini itu ada frameworknya.<br><br>
-                                Nah, ini aku kasih framework script iklannya, biar iklan kamu juga bisa narik perhatian, bikin penasaran, dan bawa orang sampai mau beli.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="upsellItemDisplay" class="hidden justify-between text-ocean-200 text-sm mt-4 mb-1 animate-slide-up">
-                    <span class="text-coral-300">+ 15 Framework Script Iklan</span>
-                    <span>Rp 29.000</span>
-                </div>
-
-                <div class="border-t border-ocean-600 pt-2 flex justify-between text-white font-bold text-lg mt-4"><span>Total Bayar</span><span id="totalPrice">Rp 179.000</span></div>
-                <a href="https://raihan-struggle.myscalev.com/checkout-page" class="btn-primary w-full py-4 mt-4 rounded-xl font-bold text-lg block text-center">Bayar Sekarang</a>
-            </div>
-        </div>
-    </section>
-
-        <!-- Bayangkan Section -->
+    <!-- Bayangkan Section -->
     <section class="w-full py-16 px-4 bg-gradient-to-b from-ocean-950 to-ocean-900 border-t border-ocean-800">
         <div class="max-w-4xl mx-auto reveal">
             <div class="text-center mb-10">
@@ -807,7 +744,8 @@
                 <p class="text-ocean-200 text-sm max-w-2xl mx-auto">Lo punya "senjata rahasia" yang selalu siap pakai kapanpun dibutuhkan.</p>
                 <p class="text-ocean-200 text-sm max-w-2xl mx-auto mt-4">Investasi kecil hari ini adalah tiket buat kebebasan waktu dan kreativitas lo selamanya.</p>
                 <p class="text-white font-bold mt-4">Jangan biarkan teknis menghalangi kesuksesan yang udah ada di depan mata.</p>
-                <a href="#checkout-summary" class="inline-block mt-6 px-6 py-3 rounded-full bg-coral-500 text-white font-bold hover:bg-coral-600 transition">Ambil Keputusan Sekarang</a>
+                <!-- UBAH LINK KE #PRICING -->
+                <a href="#pricing" class="inline-block mt-6 px-6 py-3 rounded-full bg-coral-500 text-white font-bold hover:bg-coral-600 transition">Ambil Keputusan Sekarang</a>
             </div>
         </div>
     </section>
