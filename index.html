@@ -42,7 +42,15 @@
             }
         }
     </script>
-    
+    <!-- TAMBAHKAN INI BIAR STICKY KETEMU -->
+    <style>
+        /* Style Hidden Sticky */
+        .hidden-sticky {
+            transform: translateY(100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -96,7 +104,7 @@
     </section>
 
     <!-- Problem Section -->
-    <section class="w-full py-16 px-4 bg-ocean-950">
+    <section id="problem-section" class="w-full py-16 px-4 bg-ocean-950">
         <div class="max-w-4xl mx-auto reveal">
             <div class="text-center mb-12">
                 <span class="text-ocean-400 font-medium mb-4 block">MASALAH YANG SERING DIHADAPI</span>
@@ -128,7 +136,8 @@
     </section>
     
     <!-- Agitate Section -->
-    <section class="w-full py-16 px-4 bg-gradient-to-b from-ocean-950 to-ocean-900">
+    <!-- DITAMBAH ID agitate-section untuk trigger Sticky CTA -->
+    <section id="agitate-section" class="w-full py-16 px-4 bg-gradient-to-b from-ocean-950 to-ocean-900">
         <div class="max-w-4xl mx-auto reveal">
             <div class="text-center mb-10">
                 <h2 class="font-display text-2xl md:text-4xl font-bold mb-6">Bayangkan Kalau Masalah Ini<br><span class="text-coral-400">Terus Berlarut-larut...</span></h2>
@@ -497,7 +506,7 @@
                                     <span class="text-xs font-bold text-white">WhatsApp Web</span>
                                 </div>
                                 <div class="flex items-center gap-1 bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-500/30">
-                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 000-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                     <span>Verified</span>
                                 </div>
                             </div>
@@ -580,7 +589,10 @@
         <div class="max-w-4xl mx-auto reveal">
             <div class="text-center mb-10">
                 <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">🔥 SPECIAL OFFER</h2>
-                <span class="inline-flex items-center gap-2 bg-coral-500/20 border border-coral-500/50 rounded-full px-4 py-2 mb-4 animate-zoom-in-out"><span class="w-2 h-2 bg-coral-500 rounded-full animate-pulse"></span><span class="text-coral-300 text-sm font-medium">12 Orang sedang melihat penawaran ini</span></span>
+                <span class="inline-flex items-center gap-2 bg-coral-500/20 border border-coral-500/50 rounded-full px-4 py-2 mb-4 animate-zoom-in-out">
+                    <span class="w-2 h-2 bg-coral-500 rounded-full animate-pulse"></span>
+                    <span id="liveViewersCount" class="text-coral-300 text-sm font-medium">12 Orang sedang melihat penawaran ini</span>
+                </span>
                 <h3 class="text-ocean-200 text-2xl font-bold mb-2">Investasi Sekali, Akses Selamanya 💸</h3>
                 <p class="text-ocean-400">Solusi ekonomis untuk kebutuhan bisnis digital jangka panjang Anda.</p>
             </div>
@@ -617,9 +629,13 @@
                         <span class="bg-yellow-500/20 text-yellow-400 text-[11px] font-bold px-3 py-1 rounded-full border border-yellow-500/30 shadow-sm">📉 Hemat 90%</span>
                     </div>
 
+                    <!-- UPDATED PRICING CONTENT -->
                     <div class="text-center mb-6">
-                        <div class="text-ocean-400 line-through text-lg">Rp 599.000</div>
+                        <div class="text-ocean-400 line-through text-base mb-1">Harga Normal: <span class="font-semibold">Rp 599.000</span></div>
+                        <div class="text-ocean-200 text-sm mb-1">Harga Batch 2: <span class="text-coral-300 font-bold">Rp 219.000</span></div>
+                        <!-- HARGA UTAMA -->
                         <div class="text-5xl font-bold text-white my-2">Rp 179.000</div>
+                        <div class="text-green-400 text-sm font-semibold">Harga Soft Launching (Early Bird Batch 1)</div>
                     </div>
                     
                     <div class="text-left mb-6">
@@ -653,12 +669,18 @@
             <div class="space-y-3" id="faq-container">
                 <div class="glass rounded-xl overflow-hidden"><button class="w-full p-4 text-left flex items-center justify-between hover:bg-ocean-800/50 transition-colors font-semibold text-white" onclick="toggleFaq(this)"><span>Nanti diajarin cara pakainya gak? Dapet tutorial?</span><svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="hidden p-4 text-ocean-300 text-sm border-t border-ocean-700">Ya dapet LMS lengkap.</div></div>
                 <div class="glass rounded-xl overflow-hidden"><button class="w-full p-4 text-left flex items-center justify-between hover:bg-ocean-800/50 transition-colors font-semibold text-white" onclick="toggleFaq(this)"><span>Saya gak bisa desain dan nulis kata-kata jualan, bisa pakai ini?</span><svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="hidden p-4 text-ocean-300 text-sm border-t border-ocean-700">Bisa banget. Tool ini sudah punya framework copywriting.</div></div>
-                <div class="glass rounded-xl overflow-hidden"><button class="w-full p-4 text-left flex items-center justify-between hover:bg-ocean-800/50 transition-colors font-semibold text-white" onclick="toggleFaq(this)"><span>Bisa dipakai untuk jualan produk apa aja?</span><svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="hidden p-4 text-ocean-300 text-sm border-t border-ocean-700">Bisa untuk SEMUA produk.</div></div>
+                <div class="glass rounded-xl overflow-hidden">
+                    <button class="w-full p-4 text-left flex items-center justify-between hover:bg-ocean-800/50 transition-colors font-semibold text-white" onclick="toggleFaq(this)">
+                        <span>Bisa dipakai untuk jualan produk apa aja?</span>
+                        <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="hidden p-4 text-ocean-300 text-sm border-t border-ocean-700">Bisa untuk SEMUA produk.</div>
+                </div>
                 <div class="glass rounded-xl overflow-hidden"><button class="w-full p-4 text-left flex items-center justify-between hover:bg-ocean-800/50 transition-colors font-semibold text-white" onclick="toggleFaq(this)"><span>Saya gaptek banget, pasti bingung cara pakainnya?</span><svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="hidden p-4 text-ocean-300 text-sm border-t border-ocean-700">Tenang, LMS dibuat untuk pemula.</div></div>
                 <div class="glass rounded-xl overflow-hidden"><button class="w-full p-4 text-left flex items-center justify-between hover:bg-ocean-800/50 transition-colors font-semibold text-white" onclick="toggleFaq(this)"><span>Ini langganan bulanan ya? Ada biaya tambahan lagi gak?</span><svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="hidden p-4 text-ocean-300 text-sm border-t border-ocean-700">Bukan langganan. Bayar SEKALI, akses SELAMANYA.</div></div>
                 <div class="glass rounded-xl overflow-hidden"><button class="w-full p-4 text-left flex items-center justify-between hover:bg-ocean-800/50 transition-colors font-semibold text-white" onclick="toggleFaq(this)"><span>Bisa dipakai buat 100 landing page?</span><svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="hidden p-4 text-ocean-300 text-sm border-t border-ocean-700">UNLIMITED. Bebas generate sebanyak apapun.</div></div>
                 <div class="glass rounded-xl overflow-hidden"><button class="w-full p-4 text-left flex items-center justify-between hover:bg-ocean-800/50 transition-colors font-semibold text-white" onclick="toggleFaq(this)"><span>Nanti filenya dikirim via apa dan gimana?</span><svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="hidden p-4 text-ocean-300 text-sm border-t border-ocean-700">Setelah bayar, langsung akses Dashboard.</div></div>
-                <div class="glass rounded-xl overflow-hidden"><button class="w-full p-4 text-left flex items-center justify-between hover:bg-ocean-800/50 transition-colors font-semibold text-white" onclick="toggleFaq(this)"><span>Apakah ada garansi?</span><svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="hidden p-4 text-ocean-300 text-sm border-t border-ocean-700 border-l-2 border-green-500"><strong class="text-green-400">YA ADA.</strong> Garansi 7 hari uang kembali.</div></div>
+                <div class="glass rounded-xl overflow-hidden"><button class="w-full p-4 text-left flex items-center justify-between hover:bg-ocean-800/50 transition-colors font-semibold text-white" onclick="toggleFaq(this)"><span>Apakah ada garansi? <strong class="text-green-400">YA ADA.</strong> </span><svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="hidden p-4 text-ocean-300 text-sm border-t border-ocean-700 border-l-2 border-green-500"> Garansi 7 hari uang kembali jika produk ini tidak berguna sama sekali.</div></div>
             </div>
         </div>
     </section>
@@ -675,8 +697,10 @@
                     <div class="flex justify-between"><span>Video Tutorial + Prompts</span><span>Rp 250.000</span></div>
                     <div class="flex justify-between text-green-300"><span>+ Bonus: 4 Produk Siap Jual</span><span>Rp 500.000</span></div>
                 </div>
-                <div class="flex justify-between text-ocean-300 text-sm mb-1 border-t border-ocean-600 pt-1"><span>Total Value Produk</span><span id="valueDisplay">Rp 2.050.000</span></div>
-                <div class="flex justify-between text-green-400 text-sm mb-2"><span>Diskon Early Bird (Hemat 91%)</span><span id="discountDisplay">- Rp 1.871.000</span></div>
+                <!-- UPDATED CHECKOUT SUMMARY -->
+                <div class="flex justify-between text-ocean-300 text-sm mb-1 border-t border-ocean-600 pt-1"><span>Harga Normal</span><span class="line-through">Rp 599.000</span></div>
+                <div class="flex justify-between text-ocean-200 text-sm mb-2"><span>Harga Batch 2</span><span>Rp 219.000</span></div>
+                <div class="flex justify-between text-green-400 text-sm mb-2 font-semibold"><span>Diskon Early Bird</span><span>- Rp 40.000</span></div>
                 
                 <!-- UPSELL SECTION -->
                 <div class="mt-6 relative">
@@ -804,12 +828,23 @@
     </div>
 
     <!-- Sticky CTA -->
-    <div id="stickyCta" class="sticky-cta bg-ocean-950/95 backdrop-blur-md border-t border-ocean-800 p-4 flex items-center justify-between">
+    <div id="stickyCta" class="sticky-cta bg-ocean-950/95 backdrop-blur-md border-t border-ocean-800 p-4 flex items-center justify-between transition-transform duration-300" style="transform: translateY(100%); opacity: 0; pointer-events: none;">
         <div>
-            <div class="text-ocean-400 line-through text-xs">Rp 599.000</div>
-            <div class="text-white font-bold">Mulai Rp 179.000 <span class="ml-1 text-xs text-coral-400 font-normal">Promo Diskon</span></div>
+            <div class="text-ocean-400 line-through text-xs">Harga Normal: Rp 599.000</div>
+            
+            <!-- Harga & Hemat -->
+            <div class="text-white font-bold text-lg sm:text-xl">
+                Rp 179.000 
+                <span class="text-sm text-green-400 font-semibold ml-1">(Hemat 70%)</span>
+            </div>
+            
+            <!-- Label Soft Launching (Baris baru di mobile, sejajar di desktop) -->
+            <div class="mt-1 sm:mt-0 sm:inline-block">
+                <span class="text-xs text-coral-400 bg-coral-500/20 px-2 py-0.5 rounded-full">Soft Launching</span>
+            </div>
         </div>
-        <a href="#pricing" class="btn-primary px-6 py-2 rounded-lg font-bold text-sm">Ya, Mau Ambil Promo</a>
+        
+        <a href="#pricing" class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-bold text-xs sm:text-sm whitespace-nowrap">Ya, Ambil Promo</a>
     </div>
 
     <!-- MODAL PREVIEW WINDOW -->

@@ -11,14 +11,46 @@ setInterval(() => {
 // Sticky CTA Observer
 const stickyCta = document.getElementById('stickyCta');
 const pricingSection = document.getElementById('pricing');
-const stickyObserver = new IntersectionObserver((entries) => {
+const agitateSection = document.getElementById('agitate-section');
+
+// Function to show
+function showSticky() {
+    stickyCta.style.transform = "translateY(0)";
+    stickyCta.style.opacity = "1";
+    stickyCta.style.pointerEvents = "auto";
+}
+
+// Function to hide
+function hideSticky() {
+    stickyCta.style.transform = "translateY(100%)";
+    stickyCta.style.opacity = "0";
+    stickyCta.style.pointerEvents = "none";
+}
+
+// Observer 1: Muncul setelah scroll lewat Agitate Section
+const agitateObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) stickyCta.classList.add('hidden-sticky');
-        else if (entry.boundingClientRect.top > 0) stickyCta.classList.remove('hidden-sticky');
-        else stickyCta.classList.add('hidden-sticky');
+        // Logika: Jika agitate section sudah lewat (posisi bottom nya di atas viewport / < 0)
+        // DAN dia gak kelihatan (false)
+        if (!entry.isIntersecting && entry.boundingClientRect.bottom < 0) {
+            showSticky();
+        }
     });
-}, { threshold: 0.2 });
-stickyObserver.observe(pricingSection);
+}, { threshold: 0 }); 
+agitateObserver.observe(agitateSection);
+
+// Observer 2: Hilang saat di Pricing Section
+const pricingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            hideSticky();
+        } 
+        // BUG FIX: Hapus 'else if' di sini. Biar gak nge-trigger show pas awal load.
+        // Logika show biarin agitateObserver yang handle.
+    });
+}, { threshold: 0.1 });
+pricingObserver.observe(pricingSection);
+
 
 // Sales Notification
 const buyers = [
@@ -237,3 +269,29 @@ function closeModal() {
 document.getElementById('previewModal')?.addEventListener('click', function(e) {
     if (e.target === this) closeModal();
 });
+
+// LIVE VIEWERS COUNTER (RANDOM JUMPS)
+const liveViewersCount = document.getElementById('liveViewersCount');
+let currentViewers = 12;
+
+setInterval(() => {
+    // 1. Tentuin seberapa besar lompatannya (1 sampai 4 orang)
+    const jumpSize = Math.floor(Math.random() * 4) + 1;
+    
+    // 2. Tentuin arah: Naik (1) atau Turun (0)
+    const direction = Math.random() > 0.5 ? 1 : -1;
+    
+    // 3. Hitung perubahannya
+    const change = jumpSize * direction;
+    
+    // 4. Update angka
+    currentViewers += change;
+    
+    // 5. Batasin Minimal 6, Maksimal 19
+    if (currentViewers < 6) currentViewers = 6;
+    if (currentViewers > 19) currentViewers = 19;
+    
+    // 6. Ganti teks
+    liveViewersCount.textContent = `${currentViewers} Orang sedang melihat penawaran ini`;
+    
+}, 4000); // Tiap 4 detik
