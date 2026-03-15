@@ -184,6 +184,7 @@ if(pricingSection) pricingObserver.observe(pricingSection);
 // ==========================================
 // 3. SALES NOTIFICATION (BUNDER BAWAH, DELAY 10 DETIK)
 // ==========================================
+// Sales Notification Library
 const buyers = [
     { name: 'Eka Gustiawan', initials: 'EG', time: '5 menit lalu' }, 
     { name: 'Andi Saputra', initials: 'AS', time: '2 menit lalu' }, 
@@ -191,7 +192,13 @@ const buyers = [
     { name: 'Rina Permata', initials: 'RP', time: '3 menit lalu' },
     { name: 'Deni Kurniawan', initials: 'DK', time: '1 menit lalu' },
     { name: 'Sarah Amelia', initials: 'SA', time: '7 menit lalu' },
-    { name: 'Fajar Rahman', initials: 'FR', time: '10 menit lalu' }
+    { name: 'Fajar Rahman', initials: 'FR', time: '10 menit lalu' },
+    // Tambahan 5 nama baru:
+    { name: 'Dimas Pratama', initials: 'DP', time: 'Baru saja' },
+    { name: 'Siti Nurhaliza', initials: 'SN', time: '4 menit lalu' },
+    { name: 'Reza Aditya', initials: 'RA', time: '12 menit lalu' },
+    { name: 'Nadia Putri', initials: 'NP', time: '6 menit lalu' },
+    { name: 'Hendra Wijaya', initials: 'HW', time: '2 menit lalu' }
 ];
 function showNotif() {
     const b = buyers[Math.floor(Math.random() * buyers.length)];
@@ -203,7 +210,7 @@ function showNotif() {
 }
 // DELAY JADI 10 DETIK (10000ms)
 setTimeout(showNotif, 20000); 
-setInterval(showNotif, 20000);
+setInterval(showNotif, 45000);
 
 
 // ==========================================
@@ -321,16 +328,20 @@ function closeModal() {
 document.getElementById('previewModal')?.addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
 
-// ==========================================
-// 9. LIVE VIEWERS (RANDOM)
-// ==========================================
+// LIVE VIEWERS COUNTER (RANDOM JUMPS - LEBIH NATURAL)
 const liveViewersCount = document.getElementById('liveViewersCount');
 let currentViewers = 12;
+
 setInterval(() => {
-    const jumpSize = Math.floor(Math.random() * 4) + 1;
+    // Loncatnya cuma 1 atau 2 orang aja biar realistis
+    const jumpSize = Math.floor(Math.random() * 2) + 1; 
     const direction = Math.random() > 0.5 ? 1 : -1;
-    currentViewers += jumpSize * direction;
-    if (currentViewers < 6) currentViewers = 6;
-    if (currentViewers > 19) currentViewers = 19;
+    const change = jumpSize * direction;
+    currentViewers += change;
+    
+    // Batas bawah 8 orang, batas atas 24 orang
+    if (currentViewers < 8) currentViewers = 8;
+    if (currentViewers > 24) currentViewers = 24;
+    
     liveViewersCount.textContent = `${currentViewers} Orang sedang melihat penawaran ini`;
-}, 4000);
+}, 15000); // Berubah tiap 15 detik
